@@ -4,12 +4,12 @@ A todo app coded with react hooks & functional components. This project is a clo
 
 find this project live 👉 [here](https://todo-app-react-hooks.netlify.com/)
 
-##Basic functionality / features
+## Basic functionality / features
 
 - Add , Edit & Delete Todos
 - Save todo items to browser's localStorage
 
-###Run this in your local machine
+### Run this in your local machine
 
 1. clone the repo
 
