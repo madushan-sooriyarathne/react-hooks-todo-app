@@ -24,22 +24,57 @@ export default createUseStyles({
     },
   },
   TodoItem_btn: {
-    width: "1.8rem",
-    height: "1.8rem",
+    padding: "1rem",
+    position: "relative",
+    overflow: "hidden",
+    backgroundColor: "transparent",
+    border: "none",
+    borderRadius: "50%",
+    outline: "none",
     cursor: "pointer",
-    transition: "all 0.2s ease-out",
 
-    "&:hover": {
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      top: "0",
+      left: "0",
+      width: "100%",
+      height: "100%",
+      backgroundColor: "gray",
+      borderRadius: "50%",
+      transform: "scale(0)",
+      transformOrigin: "50% 50%",
+      transition: "all 0.4s ease-in",
+    },
+    "&:hover:after": {
+      transform: "scale(2)",
+      opacity: "0.2",
+    },
+
+    "& svg": {
+      width: "1.8rem",
+      height: "1.8rem",
+
+      transition: "all 0.2s ease-out",
+    },
+
+    "&:hover svg": {
       transform: "scale(1.2)",
     },
   },
   btn_done: {
-    fill: "#f69000",
+    "& svg": {
+      fill: "#f69000",
+    },
   },
   btn_delete: {
-    fill: "#ac2e6a",
+    "& svg": {
+      fill: "#ac2e6a",
+    },
   },
   btn_edit: {
-    fill: "#10829f",
+    "& svg": {
+      fill: "#10829f",
+    },
   },
 });

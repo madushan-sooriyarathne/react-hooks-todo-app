@@ -39,26 +39,30 @@ const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
             {todo.task}
           </p>
           <div className={classes.TodoItem_button_set}>
-            <svg
+            <button
               onClick={toggleIsEditing}
               className={`${classes.TodoItem_btn} ${classes.btn_edit}`}
             >
-              <use xlinkHref={`${sprites}#icon-edit`}></use>
-            </svg>
-
-            <svg
+              <svg>
+                <use xlinkHref={`${sprites}#icon-edit`}></use>
+              </svg>
+            </button>
+            <button
               onClick={handleRemove}
               className={`${classes.TodoItem_btn} ${classes.btn_delete}`}
             >
-              <use xlinkHref={`${sprites}#icon-remove`}></use>
-            </svg>
-
-            <svg
+              <svg>
+                <use xlinkHref={`${sprites}#icon-remove`}></use>
+              </svg>
+            </button>
+            <button
               onClick={handleDone}
               className={`${classes.TodoItem_btn} ${classes.btn_done}`}
             >
-              <use xlinkHref={`${sprites}#icon-done`}></use>
-            </svg>
+              <svg>
+                <use xlinkHref={`${sprites}#icon-done`}></use>
+              </svg>
+            </button>
           </div>
         </>
       ) : (
