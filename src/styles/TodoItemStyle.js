@@ -19,6 +19,9 @@ export default createUseStyles({
     fontStyle: "italic",
   },
   TodoItem_button_set: {
+    display: "flex",
+    alignItems: "center",
+
     "& > *:not(:last-child)": {
       marginRight: "1rem",
     },
