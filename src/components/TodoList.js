@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import TodoItem from "./TodoItem";
@@ -6,8 +6,13 @@ import TodoItem from "./TodoItem";
 import useStyles from "../styles/TodoListStyle";
 
 import empty from "../img/empty.svg";
+import { TodoContext } from "../contexts/TodoContext";
 
-const TodoList = ({ todoList, deleteTodo, updateTodo }) => {
+const TodoList = () => {
+  //Context
+  const todoList = useContext(TodoContext);
+
+  // Styles
   const classes = useStyles();
   return (
     <div className={classes.TodoList}>
@@ -20,11 +25,7 @@ const TodoList = ({ todoList, deleteTodo, updateTodo }) => {
         <TransitionGroup className={classes.TodoList_list}>
           {todoList.map((todo) => (
             <CSSTransition timeout={300} key={todo.id} classNames="fade">
-              <TodoItem
-                todo={todo}
-                deleteTodo={deleteTodo}
-                updateTodo={updateTodo}
-              />
+              <TodoItem todo={todo} />
             </CSSTransition>
           ))}
         </TransitionGroup>

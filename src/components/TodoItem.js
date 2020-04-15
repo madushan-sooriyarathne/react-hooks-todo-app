@@ -1,29 +1,35 @@
-import React from "react";
+import React, { memo, useContext } from "react";
 import sprites from "../img/sprites.svg";
 import TodoForm from "./TodoForm";
 import useToggle from "../hooks/useToggle";
 
 import useStyles from "../styles/TodoItemStyle";
+import { DispatchContext } from "../contexts/TodoContext";
 
-const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
-  const [isEditing, toggleIsEditing] = useToggle(false);
+const TodoItem = ({ todo }) => {
+  //Context
+  const dispatch = useContext(DispatchContext);
+
+  // JSS styles
   const classes = useStyles();
 
+  //State
+  const [isEditing, toggleIsEditing] = useToggle(false);
+
+  // Event handlers
+  // Remove Btn Event handler
   const handleRemove = (event) => {
-    deleteTodo(todo.id);
+    dispatch({ type: "REMOVE", id: todo.id });
   };
 
+  // Check Btn Event handler
   const handleDone = (event) => {
-    updateTodo(todo.id, {
-      task: todo.task,
-      id: todo.id,
-      completed: !todo.completed,
-    });
+    dispatch({ type: "TOGGLE", id: todo.id });
   };
 
+  // Event handler for the edit form
   const handleSubmit = (task) => {
-    updateTodo(todo.id, { task: task, id: todo.id, completed: false });
-
+    dispatch({ type: "EDIT", id: todo.id, task: task });
     toggleIsEditing();
   };
 
@@ -72,4 +78,4 @@ const TodoItem = ({ todo, deleteTodo, updateTodo }) => {
   );
 };
 
-export default TodoItem;
+export default memo(TodoItem);
