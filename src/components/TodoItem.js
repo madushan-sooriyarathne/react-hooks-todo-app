@@ -33,6 +33,16 @@ const TodoItem = ({ todo }) => {
     toggleIsEditing();
   };
 
+  const formatText = (text) => {
+    const arr = text.split("");
+    if (arr.filter((c) => c === " ").length < 1) {
+      for (let i = 25; i < arr.length; i += 25) {
+        arr.splice(i, 0, " ");
+      }
+    }
+
+    return arr.toString().replace(/,/g, "");
+  };
   return (
     <div className={classes.TodoItem}>
       {!isEditing ? (
@@ -42,7 +52,7 @@ const TodoItem = ({ todo }) => {
               todo.completed && classes.done
             }`}
           >
-            {todo.task}
+            {formatText(todo.task)}
           </p>
           <div className={classes.TodoItem_button_set}>
             <button

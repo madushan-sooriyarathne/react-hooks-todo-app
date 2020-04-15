@@ -37,6 +37,7 @@ const TodoForm = ({ submit, text = "", isItem = false }) => {
           placeholder="Task"
           autoComplete="off"
           className={classes.TodoForm_input}
+          maxLength="60"
           required
         ></input>
         <button type="submit" className={classes.TodoForm_submit}>

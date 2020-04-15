@@ -2,6 +2,7 @@ import { createUseStyles } from "react-jss";
 
 export default createUseStyles({
   TodoItem: {
+    maxWidth: "45.5rem",
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
@@ -13,6 +14,8 @@ export default createUseStyles({
   TodoItem_task: {
     fontSize: "1.5rem",
     fontWeight: 500,
+    maxWidth: "28rem",
+    overflow: "auto",
   },
   done: {
     textDecoration: "line-through",
